@@ -46,16 +46,22 @@ public class Client {
     ///         If there are network problems,
     ///         we will retry the webhook a few times,
     ///         so make sure it can be safely called more than once.
+    ///    - webhookEventsFilter:
+    ///         By default, we will send requests to your webhook URL whenever there are new logs,
+    ///         new outputs, or the prediction has finished.
+    ///         You can change which events trigger webhook requests by specifying `webhookEventsFilter` in the prediction request.
     public func run<Input: Codable, Output: Codable>(
         _ identifier: Identifier,
         input: Input,
         webhook: URL? = nil,
+        webhookEventsFilter: [WebhookEvent]? = nil,
         _ type: Output.Type = AnyCodable.self
     ) async throws -> Output? {
         let prediction = try await createPrediction(Prediction<Input, Output>.self,
                                                     version: identifier.version,
                                                     input: input,
                                                     webhook: webhook,
+                                                    webhookEventsFilter: webhookEventsFilter,
                                                     wait: true)
 
         if prediction.status == .failed {
@@ -95,6 +101,10 @@ public class Client {
     ///         If there are network problems,
     ///         we will retry the webhook a few times,
     ///         so make sure it can be safely called more than once.
+    ///    - webhookEventsFilter:
+    ///         By default, we will send requests to your webhook URL whenever there are new logs,
+    ///         new outputs, or the prediction has finished.
+    ///         You can change which events trigger webhook requests by specifying `webhookEventsFilter` in the prediction request.
     ///    - wait:
     ///         If set to `true`,
     ///         this method refreshes the prediction until it completes
@@ -108,6 +118,7 @@ public class Client {
         version id: Model.Version.ID,
         input: Input,
         webhook: URL? = nil,
+        webhookEventsFilter: [WebhookEvent]? = nil,
         wait: Bool = false
     ) async throws -> Prediction<Input, Output> {
         var params: [String: AnyEncodable] = [
@@ -117,6 +128,9 @@ public class Client {
 
         if let webhook {
             params["webhook"] = "\(webhook.absoluteString)"
+        }
+        if let webhookEventsFilter {
+            params["webhook_events_filter"] = AnyEncodable(webhookEventsFilter)
         }
 
         var prediction: Prediction<Input, Output> = try await fetch(.post, "predictions", params: params)

@@ -23,8 +23,8 @@ let package = Package(
         .package(url: "https://github.com/Flight-School/AnyCodable", .upToNextMinor(from: "0.6.6")),
         .package(url: "https://github.com/mattt/OpenAPIKit", exact: "2.5.1-fork.1"),
         .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "1.1.4")),
-        .package(url: "https://github.com/apple/swift-syntax.git", exact: "0.50700.00"),
-        .package(url: "https://github.com/apple/swift-format.git", exact: "0.50700.00"),
+        .package(url: "https://github.com/apple/swift-syntax.git", exact: "0.50700.1"),
+        .package(url: "https://github.com/apple/swift-format.git", exact: "0.50700.1"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.

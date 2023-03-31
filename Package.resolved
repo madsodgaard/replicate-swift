@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Flight-School/AnyCodable",
       "state" : {
-        "revision" : "56901f2af3625b38924d488b612e95fe8846ee9b",
-        "version" : "0.6.6"
+        "revision" : "862808b2070cd908cb04f9aafe7de83d35f81b05",
+        "version" : "0.6.7"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-format.git",
       "state" : {
-        "revision" : "3dd9b517b9e9846435aa782d769ef5825e7c2d65",
-        "version" : "0.50700.0"
+        "revision" : "5f184220d032a019a63df457cdea4b9c8241e911",
+        "version" : "0.50700.1"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-syntax.git",
       "state" : {
-        "revision" : "04d4497be6b88e524a71778d828790e9589ae1c4",
-        "version" : "0.50700.0"
+        "revision" : "72d3da66b085c2299dd287c2be3b92b5ebd226de",
+        "version" : "0.50700.1"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/jpsim/Yams.git",
       "state" : {
-        "revision" : "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",
-        "version" : "4.0.6"
+        "revision" : "f47ba4838c30dbd59998a4e4c87ab620ff959e8a",
+        "version" : "5.0.5"
       }
     }
   ],
