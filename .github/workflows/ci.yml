@@ -14,6 +14,7 @@ jobs:
       matrix:
         xcode:
           - "14.0.1" # Swift 5.7
+          - "14.3" # Swift 5.8
 
     name: "macOS (Xcode ${{ matrix.xcode }})"
 
